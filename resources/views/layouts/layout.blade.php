@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <link href="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}"
@@ -12,6 +12,8 @@
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    {{-- CSS Yield --}}
+    @yield('css')
 </head>
 
 <body>
@@ -195,8 +197,8 @@
                 <!--- Sidemenu -->
                 <div id="sidebar-menu">
                     <!-- Left Menu Start -->
-                    <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Menu</li>
+                    <ul class="metismenu list-unstyled mt-4" id="side-menu">
+
                         <li>
                             <a href="{{ route('index') }}" class="waves-effect">
                                 <i class="dripicons-home"></i>
@@ -210,9 +212,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('expance.index') }}" class=" waves-effect">
+                            <a href="{{ route('expense.index') }}" class=" waves-effect">
                                 <i class="fa fa-chart-line"></i>
-                                <span>Expanges</span>
+                                <span>Expenses</span>
                             </a>
                         </li>
                         <li>
@@ -256,10 +258,30 @@
     <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}">
     </script>
     <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
-
-
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    @if (session('success'))
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                icon: 'success',
+                title: "{{ session('success') }}"
+            })
+        </script>
+    @endif
+    {{-- Script Yield --}}
+    @yield('script')
 </body>
 
 

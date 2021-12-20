@@ -96,10 +96,10 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'category_name' => 'required|unique:categories'
+            'category_name' => 'required|unique:categories,category_name,' . $category->id
         ]);
         // $category->updated([
-        //     'category_name'=>$request->category_name
+        //     'category_name'=>$request->category_name 
         // ]);
         $category->category_name = $request->category_name;
         $category->save();

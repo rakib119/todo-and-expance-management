@@ -29,13 +29,6 @@
                                         <h2>Task List</h2>
                                         <a href="{{ route('todo.create') }}" class="btn btn-success">Add Task</a>
                                     </div>
-                                    @if (session('success'))
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close"></button>
-                                            <strong>{{ session('success') }}</strong>
-                                        </div>
-                                    @endif
                                     @if ($total_task != 0)
                                         <div class="mt-3">
                                             <div class="d-flex justify-content-between  py-3">
@@ -132,7 +125,7 @@
                                             </table>
                                         </div>
                                     @else
-                                        <h2 class="text-center">No task available</h2>
+                                        <h2 class="text-center text-capitalize">information not available</h2>
                                     @endif
                                 </div>
                             </div>

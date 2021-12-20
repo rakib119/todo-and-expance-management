@@ -29,13 +29,7 @@
                                         <h2>Categories list</h2>
                                         <a href="{{ route('category.create') }}" class="btn btn-success">Add Category</a>
                                     </div>
-                                    @if (session('success'))
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close"></button>
-                                            <strong class="text-capitalize">{{ session('success') }}</strong>
-                                        </div>
-                                    @endif
+
                                     @if ($total_category != 0)
                                         <div class="mt-3">
                                             <div class="d-flex justify-content-between  py-3">
@@ -95,7 +89,7 @@
                                             </table>
                                         </div>
                                     @else
-                                        <h2 class="text-center">Category not available</h2>
+                                        <h2 class="text-center text-capitalize">information not available</h2>
                                     @endif
                                 </div>
                             </div>

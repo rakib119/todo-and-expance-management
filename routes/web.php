@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ExpanceController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ScheduleController;
-use App\Http\Controllers\SubController;
 use App\Http\Controllers\SystemController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +33,5 @@ Route::resource('/category', CategoryController::class);
 Route::post('category.status/{id}', [CategoryController::class, 'statusUpdate'])->name('category.status');
 //
 // Expance Route
-Route::resource('expance', ExpanceController::class);
-// Route::resource('subcategory', SubcategoryController::class);
-Route::get('/s-delete', 'SubController@Sub');
+Route::resource('expense', ExpenseController::class);
+Route::post('expense.sortByCategory', [ExpenseController::class, 'sortByCategory'])->name('expense.cat_sort');

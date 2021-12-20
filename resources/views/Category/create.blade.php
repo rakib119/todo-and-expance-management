@@ -40,7 +40,7 @@
                                                         <label class="form-label"
                                                             for="progress-basicpill-firstname-input">Category Name
                                                             <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" value=""
+                                                        <input type="text" class="form-control" value="{{ old('category_name') }}"
                                                             name="category_name" placeholder="Enter a category name">
                                                         @error('category_name')
                                                             <small class="text-danger"> {{ $message }}</small>

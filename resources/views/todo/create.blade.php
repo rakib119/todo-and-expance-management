@@ -40,7 +40,8 @@
                                                         <label class="form-label"
                                                             for="progress-basicpill-firstname-input">Task Name
                                                             <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" value="" name="task_name"
+                                                        <input type="text" class="form-control"
+                                                            value="{{ old('task_name') }}" name="task_name"
                                                             placeholder="Enter your task">
                                                         @error('task_name')
                                                             <small class="text-danger"> {{ $message }}</small>
@@ -54,7 +55,7 @@
                                                             for="progress-basicpill-firstname-input">Time
                                                             <span class="text-danger">*</span></label>
                                                         <input type="datetime-local" name="task_time" id="task_time"
-                                                            value="" class="form-control">
+                                                            value="{{ old('task_time') }}" class="form-control">
                                                         @error('task_time')
                                                             <small class="text-danger"> {{ $message }}</small>
                                                         @enderror
